@@ -77,7 +77,7 @@ const defaultData = [
 
 function Information() {
   const [data, setData] = useState<Data>(defaultData[0]);
-  const [isPending, setIsPending] = useState<boolean>(false);
+  const [isPending, setIsPending] = useState<boolean>(true);
   const { teacherId } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -92,7 +92,7 @@ function Information() {
     //     setData(data);
     //     setIsPending(false);
     //   });
-
+    setIsPending(false);
     setData(defaultData[Number(teacherId)]);
   }, []);
 

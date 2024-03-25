@@ -87,7 +87,7 @@ type Container = {
 };
 
 const Container = styled.div<Container>`
-  width: 100%;
+  min-width: 50vw;
   display: flex;
   justify-content: center;
   align-items: center;

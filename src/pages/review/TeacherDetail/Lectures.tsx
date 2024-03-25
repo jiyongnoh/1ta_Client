@@ -10,76 +10,271 @@ import Button from 'components/common/Button';
 import useUserInfoStore from 'stores/userInfoStore';
 import { FlexContainer } from '../TeacherList/ReviewPage';
 
-const defaultLecturesData = {
-  lectureId: 1,
-  title: '강의 타이틀명!',
-  introduction: '강의 간단 소개',
-  status: '진행중',
-  starPointAverage: 4.7,
-  totalReviewCount: 9,
-  gradeTags: [
-    {
-      gradeTag: '고1',
-    },
-    {
-      gradeTag: '고2',
-    },
-    {
-      gradeTag: '고3',
-    },
-    {
-      gradeTag: '예비고1',
-    },
-    {
-      gradeTag: '예비고2',
-    },
-    {
-      gradeTag: '예비고3',
-    },
-  ],
-  subjectTags: [
-    {
-      subjectTag: '국어',
-    },
-    {
-      subjectTag: '한국사',
-    },
-  ],
-  platformTags: [
-    {
-      platformTag: '이투스',
-    },
-    {
-      platformTag: 'EBS',
-    },
-  ],
-  teacher: {
-    teacherId: 1,
-    name: '홍길동',
-    starPointAverage: 0.0,
-  },
-};
-
-const defaultData2 = [
+const defaultLecturesData = [
   {
-    gradeTags: ['1'],
-    imageUrl: 'string;',
-    introduction: 'string;',
-    name: 'string;',
-    platformTags: [{ platformTag: 's' }],
-    starPointAverage: 5,
-    subjectTags: [{ subjectTag: 'string' }],
-    teacherId: 5,
+    lectureId: 0,
+    title: '강의 타이틀명!',
+    introduction: '강의 간단 소개',
+    status: '진행중',
+    starPointAverage: 4.1,
     totalReviewCount: 5,
-    lectures: [defaultLecturesData],
-    analects: ['1'],
-    profile: ['1'],
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+    teacher: {
+      teacherId: 2,
+      name: '강호선',
+      starPointAverage: 0.0,
+    },
+  },
+  {
+    lectureId: 1,
+    title: '강의 타이틀명!',
+    introduction: '강의 간단 소개',
+    status: '진행중',
+    starPointAverage: 3.7,
+    totalReviewCount: 11,
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+    teacher: {
+      teacherId: 1,
+      name: '이지민',
+      starPointAverage: 0.0,
+    },
+  },
+  {
+    lectureId: 2,
+    title: '강의 타이틀명!',
+    introduction: '강의 간단 소개',
+    status: '진행중',
+    starPointAverage: 2.2,
+    totalReviewCount: 72,
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+    teacher: {
+      teacherId: 1,
+      name: '이지민',
+      starPointAverage: 0.0,
+    },
+  },
+  {
+    lectureId: 2,
+    title: '강의 타이틀명!',
+    introduction: '강의 간단 소개',
+    status: '진행중',
+    starPointAverage: 5.0,
+    totalReviewCount: 72,
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+    teacher: {
+      teacherId: 0,
+      name: '김민지',
+      starPointAverage: 0.0,
+    },
+  },
+  {
+    lectureId: 2,
+    title: '강의 타이틀명!',
+    introduction: '강의 간단 소개',
+    status: '진행중',
+    starPointAverage: 2.2,
+    totalReviewCount: 72,
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+    teacher: {
+      teacherId: 2,
+      name: '강호선',
+      starPointAverage: 0.0,
+    },
   },
 ];
 
+const defaultData2 = {
+  gradeTags: ['1'],
+  imageUrl: 'string;',
+  introduction: 'string;',
+  name: 'string;',
+  platformTags: [{ platformTag: 's' }],
+  starPointAverage: 5,
+  subjectTags: [{ subjectTag: 'string' }],
+  teacherId: 5,
+  totalReviewCount: 5,
+  lectures: [...defaultLecturesData],
+  analects: ['1'],
+  profile: ['1'],
+};
 function Lectures() {
-  const [data, setData] = useState(defaultData2[0]);
-  const [isPending, setIsPending] = useState<boolean>(false);
+  const [data, setData] = useState(defaultData2);
+  const [isPending, setIsPending] = useState<boolean>(true);
   const { teacherId } = useParams();
   const { userInfo } = useUserInfoStore(state => state);
 
@@ -98,6 +293,11 @@ function Lectures() {
     //     setData(data);
     //     setIsPending(false);
     //   });
+    setIsPending(false);
+    const updateData = defaultLecturesData.filter(
+      el => el.teacher.teacherId === Number(teacherId),
+    );
+    setData({ ...defaultData2, lectures: [...updateData] });
   }, []);
 
   return (

@@ -73,138 +73,350 @@ type Data = {
   }[];
 };
 
-const defaultData = {
-  teacherId: 1,
-  name: '홍길동',
-  introduction: '홍길동 강사 간단 소개',
-  imageUrl: '이미지 url',
-  profile: [
-    '서울대학교 국어국문학과 학사',
-    '전 메가스터디 국어 강사',
-    '현 이투스 국어 강사',
-    '간단 경력 리스트 입력',
-  ],
-  analects: [
-    '잠은 죽어서 자야한다',
-    '자가진단 빨리하자',
-    '14급 15급 공무원 하면 딱 맞을새끼들 빠가새끼들 빨리때리치워',
-    '어록 리스트 입력',
-  ],
-  starPointAverage: 4.2,
-  totalReviewCount: 17,
-  starPointCount: {
-    '1점갯수': 1,
-    '5점갯수': 12,
-    '4점갯수': 3,
-    '2점갯수': 1,
-    '3점갯수': 0,
-  },
-  gradeTags: [
-    {
-      gradeTag: '고1',
+const defaultData = [
+  {
+    teacherId: 0,
+    name: '김민지',
+    introduction: '김민지 강사 간단 소개',
+    imageUrl: '이미지 url',
+    profile: [
+      '서울대학교 국어국문학과 학사',
+      '전 메가스터디 국어 강사',
+      '현 이투스 국어 강사',
+      '간단 경력 리스트 입력',
+    ],
+    analects: [
+      '잠은 죽어서 자야한다',
+      '자가진단 빨리하자',
+      '14급 15급 공무원 하면 딱 맞을새끼들 빠가새끼들 빨리때리치워',
+      '어록 리스트 입력',
+    ],
+    starPointAverage: 5.0,
+    totalReviewCount: 72,
+    starPointCount: {
+      '1점갯수': 0,
+      '5점갯수': 72,
+      '4점갯수': 0,
+      '2점갯수': 0,
+      '3점갯수': 0,
     },
-    {
-      gradeTag: '고2',
-    },
-    {
-      gradeTag: '고3',
-    },
-    {
-      gradeTag: '예비고1',
-    },
-    {
-      gradeTag: '예비고2',
-    },
-    {
-      gradeTag: '예비고3',
-    },
-  ],
-  subjectTags: [
-    {
-      subjectTag: '국어',
-    },
-    {
-      subjectTag: '한국사',
-    },
-  ],
-  platformTags: [
-    {
-      platformTag: '이투스',
-    },
-    {
-      platformTag: 'EBS',
-    },
-  ],
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
 
-  lectures: [
-    {
-      lectureId: 1,
-      title: '강의 타이틀명!',
-      status: '진행중',
-      lectureReviews: [
-        {
-          lectureReviewId: 1,
-          title: '이 강의 추천합니다!',
-          starPoint: 5,
-          content: '강의하시는데 ~~궁 ~~궁 해서 추천합니다',
-          createdAt: '2023.03.10.18:52:36',
-          modifiedAt: '2023.03.10.18:52:36',
-          viewCount: 1,
-          voteCount: 0,
-          totalCommentCount: 0,
-          teacher: {
-            teacherId: 1,
-            name: '홍길동',
-            starPointAverage: 0.0,
-          },
-          lecture: {
-            lectureId: 1,
-            title: '강의 이름!',
-            starPointAverage: 0.0,
-          },
-          member: {
-            memberId: 1,
-            email: 'ghdrlfehd@gmail.com',
-            displayName: '홍길동',
-            password: '1111',
-            iconImageUrl: 'IconUrl',
+    lectures: [
+      {
+        lectureId: 1,
+        title: '강의 타이틀명!',
+        status: '진행중',
+        lectureReviews: [
+          {
+            lectureReviewId: 1,
+            title: '이 강의 추천합니다!',
+            starPoint: 5,
+            content: '강의하시는데 ~~궁 ~~궁 해서 추천합니다',
             createdAt: '2023.03.10.18:52:36',
-            roles: [],
-            memberStatus: 'MEMBER_ACTIVE',
+            modifiedAt: '2023.03.10.18:52:36',
+            viewCount: 1,
+            voteCount: 0,
+            totalCommentCount: 0,
+            teacher: {
+              teacherId: 1,
+              name: '홍길동',
+              starPointAverage: 0.0,
+            },
+            lecture: {
+              lectureId: 1,
+              title: '강의 이름!',
+              starPointAverage: 0.0,
+            },
+            member: {
+              memberId: 1,
+              email: 'ghdrlfehd@gmail.com',
+              displayName: '홍길동',
+              password: '1111',
+              iconImageUrl: 'IconUrl',
+              createdAt: '2023.03.10.18:52:36',
+              roles: [],
+              memberStatus: 'MEMBER_ACTIVE',
+            },
           },
-        },
-      ],
+        ],
+      },
+    ],
+  },
+  {
+    teacherId: 1,
+    name: '이지민',
+    introduction: '이지민 강사 간단 소개',
+    imageUrl: '이미지 url',
+    profile: [
+      '서울대학교 국어국문학과 학사',
+      '전 메가스터디 국어 강사',
+      '현 이투스 국어 강사',
+      '간단 경력 리스트 입력',
+    ],
+    analects: [
+      '잠은 죽어서 자야한다',
+      '자가진단 빨리하자',
+      '14급 15급 공무원 하면 딱 맞을새끼들 빠가새끼들 빨리때리치워',
+      '어록 리스트 입력',
+    ],
+    starPointAverage: 3.3,
+    totalReviewCount: 83,
+    starPointCount: {
+      '1점갯수': 12,
+      '5점갯수': 51,
+      '4점갯수': 3,
+      '2점갯수': 1,
+      '3점갯수': 0,
     },
-  ],
-};
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+
+    lectures: [
+      {
+        lectureId: 1,
+        title: '강의 타이틀명!',
+        status: '진행중',
+        lectureReviews: [
+          {
+            lectureReviewId: 1,
+            title: '이 강의 추천합니다!',
+            starPoint: 5,
+            content: '강의하시는데 ~~궁 ~~궁 해서 추천합니다',
+            createdAt: '2023.03.10.18:52:36',
+            modifiedAt: '2023.03.10.18:52:36',
+            viewCount: 1,
+            voteCount: 0,
+            totalCommentCount: 0,
+            teacher: {
+              teacherId: 1,
+              name: '홍길동',
+              starPointAverage: 0.0,
+            },
+            lecture: {
+              lectureId: 1,
+              title: '강의 이름!',
+              starPointAverage: 0.0,
+            },
+            member: {
+              memberId: 1,
+              email: 'ghdrlfehd@gmail.com',
+              displayName: '홍길동',
+              password: '1111',
+              iconImageUrl: 'IconUrl',
+              createdAt: '2023.03.10.18:52:36',
+              roles: [],
+              memberStatus: 'MEMBER_ACTIVE',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    teacherId: 2,
+    name: '강호선',
+    introduction: '강호선 강사 간단 소개',
+    imageUrl: '이미지 url',
+    profile: [
+      '서울대학교 국어국문학과 학사',
+      '전 메가스터디 국어 강사',
+      '현 이투스 국어 강사',
+      '간단 경력 리스트 입력',
+    ],
+    analects: [
+      '잠은 죽어서 자야한다',
+      '자가진단 빨리하자',
+      '14급 15급 공무원 하면 딱 맞을새끼들 빠가새끼들 빨리때리치워',
+      '어록 리스트 입력',
+    ],
+    starPointAverage: 3.4,
+    totalReviewCount: 77,
+    starPointCount: {
+      '1점갯수': 1,
+      '5점갯수': 12,
+      '4점갯수': 3,
+      '2점갯수': 1,
+      '3점갯수': 0,
+    },
+    gradeTags: [
+      {
+        gradeTag: '고1',
+      },
+      {
+        gradeTag: '고2',
+      },
+      {
+        gradeTag: '고3',
+      },
+      {
+        gradeTag: '예비고1',
+      },
+      {
+        gradeTag: '예비고2',
+      },
+      {
+        gradeTag: '예비고3',
+      },
+    ],
+    subjectTags: [
+      {
+        subjectTag: '국어',
+      },
+      {
+        subjectTag: '한국사',
+      },
+    ],
+    platformTags: [
+      {
+        platformTag: '이투스',
+      },
+      {
+        platformTag: 'EBS',
+      },
+    ],
+
+    lectures: [
+      {
+        lectureId: 1,
+        title: '강의 타이틀명!',
+        status: '진행중',
+        lectureReviews: [
+          {
+            lectureReviewId: 1,
+            title: '이 강의 추천합니다!',
+            starPoint: 5,
+            content: '강의하시는데 ~~궁 ~~궁 해서 추천합니다',
+            createdAt: '2023.03.10.18:52:36',
+            modifiedAt: '2023.03.10.18:52:36',
+            viewCount: 1,
+            voteCount: 0,
+            totalCommentCount: 0,
+            teacher: {
+              teacherId: 1,
+              name: '홍길동',
+              starPointAverage: 0.0,
+            },
+            lecture: {
+              lectureId: 1,
+              title: '강의 이름!',
+              starPointAverage: 0.0,
+            },
+            member: {
+              memberId: 1,
+              email: 'ghdrlfehd@gmail.com',
+              displayName: '홍길동',
+              password: '1111',
+              iconImageUrl: 'IconUrl',
+              createdAt: '2023.03.10.18:52:36',
+              roles: [],
+              memberStatus: 'MEMBER_ACTIVE',
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function TeacherReview() {
-  const [data, setData] = useState<Data>(defaultData);
-  const [isPending, setIsPending] = useState<boolean>(false);
+  const [data, setData] = useState<Data>(defaultData[0]);
+  const [isPending, setIsPending] = useState<boolean>(true);
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
   const [lectureReviewId, setLectureReviewId] = useState<number>(-1);
   const { teacherId } = useParams();
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   axios
-  //     .get(
-  //       `${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}/reviews`,
-  //       {
-  //         headers: { 'ngrok-skip-browser-warning': '69420' },
-  //       },
-  //     )
-  //     .then((res: any) => {
-  //       return res.data.data;
-  //     })
-  //     .then(data => {
-  //       setData(data);
-  //       setIsPending(false);
-  //     })
-  //     .catch(() => {
-  //       setIsPending(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // axios
+    //   .get(
+    //     `${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}/reviews`,
+    //     {
+    //       headers: { 'ngrok-skip-browser-warning': '69420' },
+    //     },
+    //   )
+    //   .then((res: any) => {
+    //     return res.data.data;
+    //   })
+    //   .then(data => {
+    //     setData(data);
+    //     setIsPending(false);
+    //   })
+    //   .catch(() => {
+    //     setIsPending(false);
+    //   });
+    setIsPending(false);
+    setData(defaultData[Number(teacherId)]);
+  }, []);
 
   const list = ['추천', '만족도', '제목', '작성자', '등록일'];
 
