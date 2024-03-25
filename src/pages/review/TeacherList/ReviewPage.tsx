@@ -42,6 +42,48 @@ const defaultPageInfo = {
   totalPages: 1,
 };
 
+const defaultTeachers = [
+  {
+    gradeTags: ['고1', '전체'],
+    imageUrl: '',
+    introduction: 'Default introduction',
+    name: '김민지',
+    platformTags: [{ platformTag: '이투스' }, { platformTag: '전체' }],
+    starPointAverage: 5,
+    subjectTags: [{ subjectTag: '물리학' }, { subjectTag: '전체' }],
+    teacherId: 0,
+    profileImageUrl: '/Teacher_image/teachers_1.jpg',
+    realImageUrl: '',
+    totalReviewCount: 0,
+  },
+  {
+    gradeTags: ['고2', '전체'],
+    imageUrl: '',
+    introduction: 'Default introduction',
+    name: '이지민',
+    platformTags: [{ platformTag: '메가스터디' }, { platformTag: '전체' }],
+    starPointAverage: 3.8,
+    subjectTags: [{ subjectTag: '수학' }, { subjectTag: '전체' }],
+    teacherId: 1,
+    profileImageUrl: '/Teacher_image/teachers_2.jpg',
+    realImageUrl: '',
+    totalReviewCount: 0,
+  },
+  {
+    gradeTags: ['중1', '전체'],
+    imageUrl: '',
+    introduction: 'Default introduction',
+    name: '강호선',
+    platformTags: [{ platformTag: '에듀윌' }, { platformTag: '전체' }],
+    starPointAverage: 2.2,
+    subjectTags: [{ subjectTag: '국어' }, { subjectTag: '전체' }],
+    teacherId: 2,
+    profileImageUrl: '/Teacher_image/teachers_3.jpg',
+    realImageUrl: '',
+    totalReviewCount: 0,
+  },
+];
+
 function ReviewPage() {
   const [buttonOpen, setButtonOpen] = useState<boolean>(false);
   const [subject, setSubject] = useState<string>('전체');
@@ -50,39 +92,58 @@ function ReviewPage() {
   const [sortTag, setSortTag] = useState<string>('평점순');
   const [search, setSearch] = useState<string>('');
   const [reverse, setReverse] = useState<string>('정순');
-  const [teachers, setTeachers] = useState<Teachers[]>([]); // 서버에서 받아올 선생 정보
+  const [teachers, setTeachers] = useState<Teachers[]>(defaultTeachers); // 서버에서 받아올 선생 정보
   const [pageInfo, setPageInfo] = useState<PageInfo>(defaultPageInfo);
   const [curPage, setCurPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
-  const [isPending, setIsPending] = useState(true);
+  const [isPending, setIsPending] = useState(false);
 
   const { userInfo } = useUserInfoStore(state => state);
 
   useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/boards/teachers?${
-          subject !== '전체' ? `subject=${subject}&` : ''
-        }${sortTag !== '최신순' ? `sort=${sortTag}&` : ''}${
-          grade !== '전체' ? `grade=${grade}&` : ''
-        }${search !== '' ? `name=${search}&` : ''}${
-          platform !== '전체' ? `platform=${platform}&` : ''
-        }${
-          reverse !== '정순' ? `reverse=on&` : ''
-        }page=${curPage}&size=${pageSize}`,
-        {
-          headers: { 'ngrok-skip-browser-warning': '69420' },
-        },
+    // axios
+    //   .get(
+    //     `${process.env.REACT_APP_API_URL}/boards/teachers?${
+    //       subject !== '전체' ? `subject=${subject}&` : ''
+    //     }${sortTag !== '최신순' ? `sort=${sortTag}&` : ''}${
+    //       grade !== '전체' ? `grade=${grade}&` : ''
+    //     }${search !== '' ? `name=${search}&` : ''}${
+    //       platform !== '전체' ? `platform=${platform}&` : ''
+    //     }${
+    //       reverse !== '정순' ? `reverse=on&` : ''
+    //     }page=${curPage}&size=${pageSize}`,
+    //     {
+    //       headers: { 'ngrok-skip-browser-warning': '69420' },
+    //     },
+    //   )
+    //   .then((res: any) => {
+    //     setTeachers(res.data.data);
+    //     setPageInfo(res.data.pageInfo);
+    //     setCurPage(res.data.pageInfo.page);
+    //     setIsPending(false);
+    //   })
+    //   .catch(() => {
+    //     setIsPending(false);
+    //   });
+    console.log();
+
+    const updateTeachers = defaultTeachers
+      .filter(teacher => teacher.name.includes(search))
+      .filter(
+        teacher =>
+          teacher.platformTags.filter(form => form.platformTag === platform)
+            .length,
       )
-      .then((res: any) => {
-        setTeachers(res.data.data);
-        setPageInfo(res.data.pageInfo);
-        setCurPage(res.data.pageInfo.page);
-        setIsPending(false);
-      })
-      .catch(() => {
-        setIsPending(false);
-      });
+      .filter(
+        teacher =>
+          teacher.subjectTags.filter(form => form.subjectTag === subject)
+            .length,
+      )
+      .filter(
+        teacher => teacher.gradeTags.filter(form => form === grade).length,
+      );
+
+    setTeachers(updateTeachers);
   }, [subject, sortTag, search, curPage, grade, platform, reverse]);
 
   return (

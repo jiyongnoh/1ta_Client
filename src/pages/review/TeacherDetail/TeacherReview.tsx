@@ -180,31 +180,31 @@ const defaultData = {
 
 function TeacherReview() {
   const [data, setData] = useState<Data>(defaultData);
-  const [isPending, setIsPending] = useState<boolean>(true);
+  const [isPending, setIsPending] = useState<boolean>(false);
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
   const [lectureReviewId, setLectureReviewId] = useState<number>(-1);
   const { teacherId } = useParams();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}/reviews`,
-        {
-          headers: { 'ngrok-skip-browser-warning': '69420' },
-        },
-      )
-      .then((res: any) => {
-        return res.data.data;
-      })
-      .then(data => {
-        setData(data);
-        setIsPending(false);
-      })
-      .catch(() => {
-        setIsPending(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}/reviews`,
+  //       {
+  //         headers: { 'ngrok-skip-browser-warning': '69420' },
+  //       },
+  //     )
+  //     .then((res: any) => {
+  //       return res.data.data;
+  //     })
+  //     .then(data => {
+  //       setData(data);
+  //       setIsPending(false);
+  //     })
+  //     .catch(() => {
+  //       setIsPending(false);
+  //     });
+  // }, []);
 
   const list = ['추천', '만족도', '제목', '작성자', '등록일'];
 

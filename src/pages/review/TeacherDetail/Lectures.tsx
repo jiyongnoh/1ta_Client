@@ -10,7 +10,7 @@ import Button from 'components/common/Button';
 import useUserInfoStore from 'stores/userInfoStore';
 import { FlexContainer } from '../TeacherList/ReviewPage';
 
-const defaultData = {
+const defaultLecturesData = {
   lectureId: 1,
   title: '강의 타이틀명!',
   introduction: '강의 간단 소개',
@@ -60,42 +60,44 @@ const defaultData = {
   },
 };
 
-const defaultData2 = {
-  gradeTags: ['1'],
-  imageUrl: 'string;',
-  introduction: 'string;',
-  name: 'string;',
-  platformTags: [{ platformTag: 's' }],
-  starPointAverage: 5,
-  subjectTags: [{ subjectTag: 'string' }],
-  teacherId: 5,
-  totalReviewCount: 5,
-  lectures: [defaultData],
-  analects: ['1'],
-  profile: ['1'],
-};
+const defaultData2 = [
+  {
+    gradeTags: ['1'],
+    imageUrl: 'string;',
+    introduction: 'string;',
+    name: 'string;',
+    platformTags: [{ platformTag: 's' }],
+    starPointAverage: 5,
+    subjectTags: [{ subjectTag: 'string' }],
+    teacherId: 5,
+    totalReviewCount: 5,
+    lectures: [defaultLecturesData],
+    analects: ['1'],
+    profile: ['1'],
+  },
+];
 
 function Lectures() {
-  const [data, setData] = useState(defaultData2);
-  const [isPending, setIsPending] = useState<boolean>(true);
+  const [data, setData] = useState(defaultData2[0]);
+  const [isPending, setIsPending] = useState<boolean>(false);
   const { teacherId } = useParams();
   const { userInfo } = useUserInfoStore(state => state);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}`, {
-        headers: {
-          'ngrok-skip-browser-warning': 'asdasdas',
-        },
-      })
-      .then((res: any) => {
-        return res.data.data;
-      })
-      .then(data => {
-        setData(data);
-        setIsPending(false);
-      });
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}`, {
+    //     headers: {
+    //       'ngrok-skip-browser-warning': 'asdasdas',
+    //     },
+    //   })
+    //   .then((res: any) => {
+    //     return res.data.data;
+    //   })
+    //   .then(data => {
+    //     setData(data);
+    //     setIsPending(false);
+    //   });
   }, []);
 
   return (

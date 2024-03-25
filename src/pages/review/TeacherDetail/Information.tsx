@@ -22,39 +22,78 @@ type Data = {
   profile: string[];
 };
 
-const defaultData = {
-  gradeTags: ['string'],
-  profileImageUrl: 'string;',
-  realImageUrl: 'string;',
-  introduction: 'string;',
-  name: 'string;',
-  platformTags: [{ platformTag: 'string' }],
-  starPointAverage: 5,
-  subjectTags: [{ subjectTag: 'string' }],
-  teacherId: 5,
-  totalReviewCount: 5,
-  lectures: [],
-  analects: ['string'],
-  profile: ['string'],
-};
+const defaultData = [
+  {
+    lectures: [],
+    analects: ['물리면 물리무리'],
+    profile: ['물리학 일타 강사 김민지!'],
+
+    gradeTags: ['고1', '전체'],
+    introduction: '민지민지',
+    name: '김민지',
+    platformTags: [{ platformTag: '이투스' }, { platformTag: '전체' }],
+    starPointAverage: 5,
+    subjectTags: [{ subjectTag: '물리학' }, { subjectTag: '전체' }],
+    teacherId: 0,
+    profileImageUrl: '/Teacher_image/teachers_1.jpg',
+    realImageUrl: '',
+    totalReviewCount: 5,
+  },
+  {
+    lectures: [],
+    analects: ['수학을 줄이면? 솩~'],
+    profile: ['수학 일타 강사 이지민!'],
+
+    gradeTags: ['고2', '전체'],
+    imageUrl: '',
+    introduction: '아재같은 선생님',
+    name: '이지민',
+    platformTags: [{ platformTag: '메가스터디' }, { platformTag: '전체' }],
+    starPointAverage: 3.8,
+    subjectTags: [{ subjectTag: '수학' }, { subjectTag: '전체' }],
+    teacherId: 1,
+    profileImageUrl: '/Teacher_image/teachers_2.jpg',
+    realImageUrl: '',
+    totalReviewCount: 0,
+  },
+  {
+    lectures: [],
+    analects: ['저는 외국인입니다'],
+    profile: ['국어 일타 강사 강호선!'],
+
+    gradeTags: ['중1', '전체'],
+    imageUrl: '',
+    introduction: '제 친구 실명입니다',
+    name: '강호선',
+    platformTags: [{ platformTag: '에듀윌' }, { platformTag: '전체' }],
+    starPointAverage: 2.2,
+    subjectTags: [{ subjectTag: '국어' }, { subjectTag: '전체' }],
+    teacherId: 2,
+    profileImageUrl: '/Teacher_image/teachers_3.jpg',
+    realImageUrl: '',
+    totalReviewCount: 0,
+  },
+];
 
 function Information() {
-  const [data, setData] = useState<Data>(defaultData);
-  const [isPending, setIsPending] = useState<boolean>(true);
+  const [data, setData] = useState<Data>(defaultData[0]);
+  const [isPending, setIsPending] = useState<boolean>(false);
   const { teacherId } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}`, {
-        headers: { 'ngrok-skip-browser-warning': '69420' },
-      })
-      .then((res: any) => {
-        return res.data.data;
-      })
-      .then(data => {
-        setData(data);
-        setIsPending(false);
-      });
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/boards/teachers/${teacherId}`, {
+    //     headers: { 'ngrok-skip-browser-warning': '69420' },
+    //   })
+    //   .then((res: any) => {
+    //     return res.data.data;
+    //   })
+    //   .then(data => {
+    //     setData(data);
+    //     setIsPending(false);
+    //   });
+
+    setData(defaultData[Number(teacherId)]);
   }, []);
 
   return (

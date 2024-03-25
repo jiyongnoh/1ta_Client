@@ -44,7 +44,7 @@ function CharacterCard({
             <CardContainer>
               <Link to={`/ReviewPageDetail/${el.teacherId}`}>
                 <Img
-                  src={el.profileImageUrl || 'http://placehold.it/170X175'}
+                  src={el.profileImageUrl || 'https://placehold.it/170X175'}
                   alt="thumbnail"
                 />
               </Link>
@@ -85,6 +85,7 @@ function CharacterCard({
                 <BsStarFill color="gold" /> {el.starPointAverage.toFixed(1)}
               </NomalSpan>
             </CardContainer>
+
             <FlexContainer
               display={userInfo.state === 'ADMIN' ? 'flex' : 'none'}
             >
