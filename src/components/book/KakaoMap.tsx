@@ -1,10 +1,13 @@
+/* eslint-disable func-names */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useEffect, useRef } from 'react';
 import { FlexContainer } from 'pages/review/TeacherList/ReviewPage';
 
 interface MapProps {
